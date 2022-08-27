@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="5dp"
+    >
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/silver"
+        >
+        <ImageView
+            android:id="@+id/image_services"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            tools:src="@drawable/ic_business_card_bank_svgrepo_com"
+            />
+        <TextView
+            android:id="@+id/name_services"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/name_popular"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            />
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

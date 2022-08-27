@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">TestExam</string>
+    <string name="menu">Главное</string>
+    <string name="history">История</string>
+    <string name="pay">Услуги</string>
+    <string name="option">Настройки</string>
+    <string name="hi">Привет,</string>
+    <string name="name_user">Андрей</string>
+    <string name="name_balans">Баланс</string>
+    <string name="name_check">$ 1.20000</string>
+    <string name="name_id_card">4675 2233 3333 9999</string>
+    <string name="name_term">04/23</string>
+    <string name="name_popular">Популярное</string>
+    <string name="all_services">Все услуги</string>
+    <string name="rate_name">Курсы валют</string>
+    <string name="sale_name_kurs">Продажа</string>
+    <string name="buy_name_kurs">Покупка</string>
+    <string name="rub_name">RUB</string>
+    <string name="dollar_name">USD</string>
+    <string name="euro_name">EUR</string>
+    <string name="example">12.0000</string>
+    <string name="cashback">Кэшбеки</string>
+    <string name="all_cashback">Все кэшбеки</string>
+</resources>

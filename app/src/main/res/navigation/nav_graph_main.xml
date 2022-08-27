@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.app.testexam.presentation.ui.fragment.main.menu.MenuFragment"
+        android:label="MainFlowFragment" />
+    <fragment
+        android:id="@+id/payFragment"
+        android:name="com.app.testexam.presentation.ui.fragment.main.pay.PayFragment"
+        android:label="PayFragment" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.app.testexam.presentation.ui.fragment.main.history.HistoryFragment"
+        android:label="HistoryFragment" />
+    <fragment
+        android:id="@+id/optionFragment"
+        android:name="com.app.testexam.presentation.ui.fragment.main.option.OptionFragment"
+        android:label="OptionFragment" />
+</navigation>
