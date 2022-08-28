@@ -7,7 +7,11 @@
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.app.testexam.presentation.ui.fragment.main.menu.MenuFragment"
-        android:label="MainFlowFragment" />
+        android:label="MainFlowFragment" >
+        <action
+            android:id="@+id/action_menuFragment_to_showCashBackFragment"
+            app:destination="@id/showCashBackFragment" />
+    </fragment>
     <fragment
         android:id="@+id/payFragment"
         android:name="com.app.testexam.presentation.ui.fragment.main.pay.PayFragment"
@@ -20,4 +24,12 @@
         android:id="@+id/optionFragment"
         android:name="com.app.testexam.presentation.ui.fragment.main.option.OptionFragment"
         android:label="OptionFragment" />
+    <fragment
+        android:id="@+id/showCashBackFragment"
+        android:name="com.app.testexam.presentation.ui.fragment.main.menu.cashback.ShowCashBackFragment"
+        android:label="@string/all_cashback" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>

@@ -3,14 +3,23 @@ package com.app.testexam.presentation.ui.fragment.main.menu
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.app.testexam.R
+import com.app.testexam.app.ID
+import com.app.testexam.app.TestExamApp
 import com.app.testexam.data.models.Services
 import com.app.testexam.databinding.FragmentMenuBinding
 import com.app.testexam.presentation.base.BaseFragment
+import com.app.testexam.presentation.extensions.activityNavController
+import com.app.testexam.presentation.extensions.hideActionBar
+import com.app.testexam.presentation.extensions.navigateSafely
 import com.app.testexam.presentation.ui.fragment.main.menu.cashback.CashbackAdapter
+import com.app.testexam.presentation.ui.fragment.main.menu.cashback.ShowCashBackFragment
+import com.app.testexam.presentation.ui.fragment.main.menu.cashback.ShowCashBackFragmentArgs
+import com.app.testexam.presentation.ui.fragment.main.menu.payment.listservice.ListServiceFragmentDirections
 
 class MenuFragment:BaseFragment<FragmentMenuBinding>(R.layout.fragment_menu) {
     override val binding by viewBinding(FragmentMenuBinding::bind)
@@ -24,17 +33,35 @@ class MenuFragment:BaseFragment<FragmentMenuBinding>(R.layout.fragment_menu) {
         val listCashback = viewModel.cashbackList()
         servicesAdapter(listServices)
         cashbackAdapter(listCashback)
+        binding.allServices.setOnClickListener {
+            val direction = ListServiceFragmentDirections.actionGlobalToListservice(1)
+           activityNavController().navigateSafely(direction)
+        }
+        binding.allCashback.setOnClickListener {
+            val direction = MenuFragmentDirections.actionMenuFragmentToShowCashBackFragment(1)
+            findNavController().navigateSafely(direction)
+        }
     }
 
     private fun cashbackAdapter(listCashback: List<Int>) {
         recyclerCashback = binding.recyclerCashback
-        recyclerCashback.adapter = CashbackAdapter(listCashback)
+        recyclerCashback.adapter = CashbackAdapter(listCashback,0)
         recyclerCashback.layoutManager = LinearLayoutManager(requireContext(),RecyclerView.HORIZONTAL,false)
     }
 
     private fun servicesAdapter(listServices: List<Services>) {
-        recyclerViewService = binding.recyclerServices
-        recyclerViewService.adapter = ServicesAdapter(listServices)
-        recyclerViewService.layoutManager = LinearLayoutManager(requireContext(),RecyclerView.HORIZONTAL,false)
+        recyclerCashback = binding.recyclerServices
+        val id = TestExamApp.sharedPreferencesEditor
+        recyclerCashback.adapter = ServicesAdapter(listServices,0){
+            id.putInt(ID,it)
+            id.apply()
+            activityNavController().navigateSafely(R.id.from_global_to_typeservice)
+        }
+        recyclerCashback.layoutManager = LinearLayoutManager(requireContext(),RecyclerView.HORIZONTAL,false)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        hideActionBar()
     }
 }

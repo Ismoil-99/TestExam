@@ -2,6 +2,7 @@ package com.app.testexam.presentation.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -31,5 +32,14 @@ class MainActivity : AppCompatActivity() {
 
         navController.graph = graph
         NavigationUI.setupWithNavController(findViewById(R.id.toolbar), navController, null)
+        changeDestination()
+    }
+
+    private fun changeDestination() {
+        navController.addOnDestinationChangedListener{_,destionation,_->
+            when(destionation.id){
+                R.id.payFragment -> {findViewById<Toolbar>(R.id.toolbar).title = null}
+            }
+        }
     }
 }

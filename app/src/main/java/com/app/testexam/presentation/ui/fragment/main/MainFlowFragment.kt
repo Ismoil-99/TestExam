@@ -1,6 +1,7 @@
 package com.app.testexam.presentation.ui.fragment.main
 
 import androidx.navigation.NavController
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.app.testexam.R
@@ -16,5 +17,6 @@ class MainFlowFragment:BaseFlowFragment(R.layout.fragment_flow_main,R.id.fragmen
     }
     override fun setupNavigation(navController: NavController) {
         binding.bottomNavigation.setupWithNavController(navController)
+        NavigationUI.setupWithNavController(requireActivity().findViewById(R.id.toolbar), navController, null)
     }
 }

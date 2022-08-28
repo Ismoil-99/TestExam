@@ -9,4 +9,23 @@
         android:name="com.app.testexam.presentation.ui.fragment.main.MainFlowFragment"
         android:label="@string/app_name"
         tools:layout="@layout/fragment_flow_main" />
+    <fragment
+        android:id="@+id/listServiceFragment"
+        android:name="com.app.testexam.presentation.ui.fragment.main.menu.payment.listservice.ListServiceFragment"
+        android:label="@string/list_service"
+        tools:layout="@layout/fragment_service"
+        >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+    <include app:graph="@navigation/nav_graph_type_service"/>
+    <action
+        android:id="@+id/from_global_to_typeservice"
+        app:destination="@+id/nav_graph_type_service"
+        />
+    <action
+        android:id="@+id/action_global_to_listservice"
+        app:destination="@+id/listServiceFragment"
+        />
 </navigation>
