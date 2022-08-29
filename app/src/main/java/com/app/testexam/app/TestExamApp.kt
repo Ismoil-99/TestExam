@@ -3,7 +3,10 @@ package com.app.testexam.app
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import dagger.hilt.android.HiltAndroidApp
 
+
+@HiltAndroidApp
 class TestExamApp:Application() {
     override fun onCreate() {
         super.onCreate()

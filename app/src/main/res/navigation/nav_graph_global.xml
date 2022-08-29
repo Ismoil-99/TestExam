@@ -25,6 +25,10 @@
         app:destination="@+id/nav_graph_type_service"
         />
     <action
+        android:id="@+id/from_typeservice_to_nav_main"
+        app:destination="@+id/nav_main"
+        />
+    <action
         android:id="@+id/action_global_to_listservice"
         app:destination="@+id/listServiceFragment"
         />

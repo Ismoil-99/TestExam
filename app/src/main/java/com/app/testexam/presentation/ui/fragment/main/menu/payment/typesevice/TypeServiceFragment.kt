@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavHost
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -27,6 +29,7 @@ class TypeServiceFragment: BaseFragment<FragmentTypeServiceBinding>(R.layout.fra
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        backToMain()
         when(TestExamApp.sharedPreferences.getInt(ID,0)){
             0 ->{service = viewModel.banckService()
                 (requireActivity() as AppCompatActivity).supportActionBar?.title = "Услуги Банка"
@@ -61,6 +64,12 @@ class TypeServiceFragment: BaseFragment<FragmentTypeServiceBinding>(R.layout.fra
             }
         }
         setupAdapter(service)
+    }
+
+    private fun backToMain() {
+        val navHost = requireActivity().supportFragmentManager.findFragmentById(R.id.fragment_container_view) as NavHost
+        val navController = navHost.navController
+        NavigationUI.setupWithNavController(requireActivity().findViewById(R.id.toolbar),navController,null)
     }
 
     private fun setupAdapter(service: List<Services>) {

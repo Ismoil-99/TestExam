@@ -8,7 +8,9 @@ import com.app.testexam.R
 import com.app.testexam.databinding.FragmentFlowMainBinding
 import com.app.testexam.presentation.base.BaseFlowFragment
 import com.app.testexam.presentation.extensions.hideActionBar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainFlowFragment:BaseFlowFragment(R.layout.fragment_flow_main,R.id.fragment_container_view) {
     private val binding by viewBinding(FragmentFlowMainBinding::bind)
     override fun onResume() {
