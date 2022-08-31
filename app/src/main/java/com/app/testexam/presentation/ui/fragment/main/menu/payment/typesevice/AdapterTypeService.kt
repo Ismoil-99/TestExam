@@ -10,7 +10,7 @@ import com.app.testexam.databinding.ListTypeServiceBinding
 
 class AdapterTypeService(
     private val payment: List<Services>,
-    private val onItemClick:(Int) -> Unit
+    private val onItemClick:(Services) -> Unit
 ): RecyclerView.Adapter<AdapterTypeService.PartViewHolder>() {
 
     inner class PartViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -19,7 +19,7 @@ class AdapterTypeService(
             binding.nameServices.text = payment.nameServices
             binding.imageServices.setImageResource(payment.imageServices)
             itemView.setOnClickListener {
-                onItemClick.invoke(bindingAdapterPosition)
+                onItemClick.invoke(payment)
             }
         }
     }

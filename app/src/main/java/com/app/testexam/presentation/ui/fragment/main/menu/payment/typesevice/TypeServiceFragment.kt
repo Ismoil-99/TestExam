@@ -1,6 +1,7 @@
 package com.app.testexam.presentation.ui.fragment.main.menu.payment.typesevice
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
@@ -75,7 +76,8 @@ class TypeServiceFragment: BaseFragment<FragmentTypeServiceBinding>(R.layout.fra
     private fun setupAdapter(service: List<Services>) {
         servicerecyclerView = binding.listService
         servicerecyclerView.adapter = AdapterTypeService(service){
-            findNavController().navigateSafely(R.id.action_typeServiceFragment_to_paymentFragment)
+            val directions = TypeServiceFragmentDirections.actionTypeServiceFragmentToPaymentFragment(it.nameServices,it.imageServices)
+            findNavController().navigateSafely(directions)
         }
         servicerecyclerView.layoutManager = LinearLayoutManager(requireContext(),RecyclerView.VERTICAL,false)
     }

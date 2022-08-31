@@ -19,9 +19,8 @@ import com.app.testexam.presentation.extensions.hideActionBar
 import com.app.testexam.presentation.extensions.navigateSafely
 import com.app.testexam.presentation.ui.fragment.main.menu.cashback.CashbackAdapter
 import com.app.testexam.presentation.ui.fragment.main.menu.payment.listservice.ListServiceFragmentDirections
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class MenuFragment:BaseFragment<FragmentMenuBinding>(R.layout.fragment_menu) {
     override val binding by viewBinding(FragmentMenuBinding::bind)
     private val viewModel:MenuViewModel by viewModels()
@@ -30,7 +29,6 @@ class MenuFragment:BaseFragment<FragmentMenuBinding>(R.layout.fragment_menu) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.currency()
         val listServices = viewModel.listServices()
         val listCashback = viewModel.cashbackList()
         servicesAdapter(listServices)
@@ -42,9 +40,6 @@ class MenuFragment:BaseFragment<FragmentMenuBinding>(R.layout.fragment_menu) {
         binding.allCashback.setOnClickListener {
             val direction = MenuFragmentDirections.actionMenuFragmentToShowCashBackFragment(1)
             findNavController().navigateSafely(direction)
-        }
-        viewModel.currencyData.observe(requireActivity()){
-            Log.d("currency","$it")
         }
     }
 

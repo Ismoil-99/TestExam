@@ -15,5 +15,13 @@
     <fragment
         android:id="@+id/paymentFragment"
         android:name="com.app.testexam.presentation.ui.fragment.main.menu.payment.pay.PaymentFragment"
-         />
+         >
+        <argument
+            android:name="nameCompany"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="imageCompany"
+            app:argType="integer" />
+    </fragment>
 </navigation>

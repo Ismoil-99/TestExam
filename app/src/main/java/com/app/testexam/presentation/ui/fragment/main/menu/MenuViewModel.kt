@@ -1,23 +1,13 @@
 package com.app.testexam.presentation.ui.fragment.main.menu
 
-import androidx.lifecycle.MutableLiveData
+
 import androidx.lifecycle.ViewModel
 import com.app.testexam.R
-import com.app.testexam.data.models.CurrencyAll
-import com.app.testexam.data.models.CurrencyData
 import com.app.testexam.data.models.Services
-import com.app.testexam.data.repositories.GetCurrencyImpl
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 
 
-@HiltViewModel
-class MenuViewModel @Inject constructor (private val getCurrencyImpl: GetCurrencyImpl):ViewModel() {
-    var currencyData = MutableLiveData<CurrencyAll>()
+class MenuViewModel:ViewModel() {
 
-    fun currency(){
-        currencyData = getCurrencyImpl.getCurrency()
-    }
 
     fun listServices():List<Services>{
         return listOf(

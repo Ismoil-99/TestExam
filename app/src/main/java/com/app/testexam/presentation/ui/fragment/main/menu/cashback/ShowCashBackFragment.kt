@@ -13,6 +13,7 @@ import com.app.testexam.presentation.base.BaseFragment
 import com.app.testexam.presentation.extensions.showActionBar
 import com.app.testexam.presentation.ui.fragment.main.menu.MenuViewModel
 
+
 class ShowCashBackFragment: BaseFragment<FragmentShowCashbackBinding>(R.layout.fragment_show_cashback) {
     override val binding by viewBinding(FragmentShowCashbackBinding::bind)
     private lateinit var recyclerAllCashback: RecyclerView

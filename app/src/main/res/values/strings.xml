@@ -22,4 +22,6 @@
     <string name="cashback">Кэшбеки</string>
     <string name="all_cashback">Все кэшбеки</string>
     <string name="list_service">Оплатить</string>
+    <string name="example_name_company">Номер</string>
+    <string name="name_amount">Введите сумму</string>
 </resources>
